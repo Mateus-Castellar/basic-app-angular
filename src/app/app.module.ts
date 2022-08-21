@@ -12,7 +12,9 @@ import { ContatoComponent } from './institucional/contato/contato.component';
 import { rootRouterConfig } from './app.roteamento';
 import { DataBindingComponent } from './demos/data-binding/data-binding.component';
 import { FormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
 import { ProdutoService } from './produtos/produtos.service';
+import { ListaProdutoComponent } from './produtos/lista-produto/lista-produto.component';
 
 @NgModule({
   declarations: [
@@ -22,9 +24,11 @@ import { ProdutoService } from './produtos/produtos.service';
     RodapeComponent,
     SobreComponent,
     ContatoComponent,
-    DataBindingComponent
+    DataBindingComponent,
+    ListaProdutoComponent
   ],
   imports: [
+    HttpClientModule,
     BrowserModule,
     FormsModule,
     [RouterModule.forRoot(rootRouterConfig, {useHash:false})]
