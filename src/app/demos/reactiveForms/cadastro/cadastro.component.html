@@ -8,12 +8,19 @@
       <div class="form-group">
         <label class="col-md-2 control-label" for="nome">Nome Completo</label>
         <div class="col-md-10">
-          <input class="form-control" id="nome" type="text" placeholder="Nome (requerido)" formControlName="nome"
-          [ngClass]="{'is-invalid': cadastroForm.get('nome').errors && cadastroForm.get('nome').touched}
-          || cadastroForm.get('nome').errors && cadastroForm.get('nome').dirty" />
+          <input 
+            class="form-control" 
+            id="nome" 
+            type="text" 
+            placeholder="Nome (requerido)" 
+            formControlName="nome"
+              [ngClass]="{'is-invalid': 
+                cadastroForm.get('nome').errors && cadastroForm.get('nome').touched} || 
+                cadastroForm.get('nome').errors && cadastroForm.get('nome').dirty" />
           
-          <span class="text-danger" *ngIf="cadastroForm.get('nome').errors && cadastroForm.get('nome').touched 
-                                    || cadastroForm.get('nome').errors && cadastroForm.get('nome').dirty">
+          <span class="text-danger" 
+            *ngIf="cadastroForm.get('nome').errors && cadastroForm.get('nome').touched || 
+                   cadastroForm.get('nome').errors && cadastroForm.get('nome').dirty">
             <p>Preencha o campo nome</p>
           </span>
         </div>
@@ -29,7 +36,28 @@
       <div class="form-group">
         <label class="col-md-2 control-label" for="nome">Email</label>
         <div class="col-md-10">
-          <input class="form-control" id="email" type="email" placeholder="Email (requerido)" formControlName="email" />
+          <input 
+            class="form-control" 
+            id="email" 
+            type="email" 
+            placeholder="Email (requerido)" 
+            formControlName="email"
+              [ngClass]="{'is-invalid': 
+                cadastroForm.get('email').errors && cadastroForm.get('email').touched} || 
+                cadastroForm.get('email').errors && cadastroForm.get('email').dirty"/>
+
+          <span class="text-danger" 
+            *ngIf="cadastroForm.get('email')?.errors?.required && cadastroForm.get('email').touched || 
+                   cadastroForm.get('email')?.errors?.required && cadastroForm.get('email').dirty">
+            <p>Preencha o campo email</p>
+          </span>
+
+          <span class="text-danger" 
+          *ngIf="cadastroForm.get('email')?.errors?.email && cadastroForm.get('email').touched || 
+                cadastroForm.get('email')?.errors?.email && cadastroForm.get('email').dirty">
+            <p>Email em formato invalido</p>
+          </span>
+
         </div>
       </div>
 
@@ -51,15 +79,17 @@
 
       <div class="form-group">
         <div class="col-md-4 col-md-offset-2">
-          <span><button class="btn btn-success" id="Registrar" type="submit">Registrar</button></span>
+          <!-- [disabled]="cadastroForm.valid === false" -->
+          <span><button class="btn btn-success"  id="Registrar" type="submit">Registrar</button></span>
         </div>
       </div>
 
       <div class="form-group">
         <div class="col-md-4 col-md-offset-2">
           <p>Formulário valido: {{cadastroForm.valid}}</p><!-- de acordo com a validation do .ts -->
-          <p>Formulário tocado: {{cadastroForm.touched}}</p> <!-- Quando o form recebe foco -->
+          <p>Formulário tocado: {{cadastroForm.touched}}</p> <!-- quando o form recebe foco -->
           <p>Formulário sujo: {{cadastroForm.dirty}}</p><!-- quando o form sofre qualquer alteracao -->
+          <p>Formulário: {{ formResult }}</p>
         </div>
       </div>
 
