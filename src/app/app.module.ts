@@ -19,6 +19,7 @@ import localePt from '@angular/common/locales/pt';
 registerLocaleData(localePt);
 import { ListaProdutoComponent } from './produtos/lista-produto/lista-produto.component';
 import { CadastroComponent } from './demos/reactiveForms/cadastro/cadastro.component';
+import { CustomFormsModule } from 'ng2-validation';
 
 @NgModule({
   declarations: [
@@ -37,6 +38,7 @@ import { CadastroComponent } from './demos/reactiveForms/cadastro/cadastro.compo
     BrowserModule,
     ReactiveFormsModule,
     FormsModule,
+    CustomFormsModule,
     [RouterModule.forRoot(rootRouterConfig, {useHash:false})]
   ],
   providers: [

@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
+import { CustomValidators } from 'ng2-validation';
 import { Usuario } from './models/usuario';
 
 @Component({
@@ -7,7 +8,8 @@ import { Usuario } from './models/usuario';
   templateUrl: './cadastro.component.html'
 })
 
-export class CadastroComponent implements OnInit {
+export class CadastroComponent implements OnInit
+{
 
   cadastroForm: FormGroup;
   usuario: Usuario;
@@ -15,17 +17,26 @@ export class CadastroComponent implements OnInit {
 
   constructor(private fb: FormBuilder) { }
 
-  ngOnInit(): void {
+  ngOnInit(): void
+  {
+
+    let senha = new FormControl('', [Validators.required,
+    CustomValidators.rangeLength([6, 15])]);
+
+    let senhaConfirmacao = new FormControl('', [Validators.required,
+    CustomValidators.rangeLength([6, 15]), CustomValidators.equalTo(senha)]);
+
     this.cadastroForm = this.fb.group({
-      nome: ['', Validators.required],
+      nome: ['', [Validators.required, Validators.minLength(2), Validators.maxLength(50)]],
       cpf: [''],
-      email: ['',[Validators.required, Validators.email]],
-      senha: [''],
-      senhaConfirmacao: [''],
+      email: ['', [Validators.required, Validators.email]],
+      senha: senha,
+      senhaConfirmacao: senhaConfirmacao,
     });
   }
 
-  adicionarUsuario() {
+  adicionarUsuario()
+  {
     if (this.cadastroForm.dirty && this.cadastroForm.valid)
     {
       //passa os dados do form em um objeto do tipo 'usuario'
