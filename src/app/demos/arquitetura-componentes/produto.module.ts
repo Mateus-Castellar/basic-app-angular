@@ -6,12 +6,14 @@ import { produtoRoutingModule } from "./produto.route";
 import { registerLocaleData } from "@angular/common";
 import localePt from '@angular/common/locales/pt'
 import { ProdutoDetalheComponent } from "./components/produto-card-detalhe.component";
+import { ProdutoCountComponent } from "./components/produto-count.component";
 registerLocaleData(localePt);
 
 @NgModule({
     declarations: [
         ProdutoDashboardComponent,
-        ProdutoDetalheComponent
+        ProdutoDetalheComponent,
+        ProdutoCountComponent
     ],
     imports: [
         CommonModule,
