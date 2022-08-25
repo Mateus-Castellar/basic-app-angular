@@ -1,4 +1,5 @@
-import { Routes } from "@angular/router";
+import { NgModule } from "@angular/core";
+import { RouterModule, Routes } from "@angular/router";
 import { DataBindingComponent } from "./demos/data-binding/data-binding.component";
 import { CadastroComponent } from "./demos/reactiveForms/cadastro/cadastro.component";
 import { ContatoComponent } from "./institucional/contato/contato.component";
@@ -17,5 +18,16 @@ export const rootRouterConfig: Routes =
     { path: 'cadastro', component: CadastroComponent },
 
     //exemplo de como passar parametro na rota (id)
-    { path: 'produto-detalhe/:id', component: ListaProdutoComponent }
-  ];
+    //{ path: 'produto-detalhe/:id', component: ListaProdutoComponent }
+  ]; 
+
+  @NgModule({
+    imports: [
+      RouterModule.forRoot(rootRouterConfig),
+    ],
+    exports: [
+      RouterModule
+    ]
+  })
+
+  export class AppRoutingModule{}
