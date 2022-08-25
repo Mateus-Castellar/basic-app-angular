@@ -12,7 +12,7 @@
                 <!-- <li class="nav-item">
                     <a class="nav-link text-light" [routerLink]="['/produtos']">Produtos</a>
                 </li> -->
-                <li class="nav-item">
+                <!-- <li class="nav-item">
                     <a class="nav-link"[routerLinkActiveOptions]="{ exact:true }"   routerLinkActive="active"  [routerLink]="['/home']">Home</a>
                 </li>
                 <li class="nav-item">
@@ -29,7 +29,14 @@
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" [routerLinkActiveOptions]="{ exact:true }" routerLinkActive="active"  [routerLink]="['/produtos-dashboard']">Produtos</a>
+                </li> -->
+
+                <li class="nav-item" *ngFor="let item of nav">
+                    <a class="nav-link" [routerLink]="item.link" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: item.exact }">
+                        {{ item.name }}
+                    </a>
                 </li>
+
             </ul>
         </div>
 

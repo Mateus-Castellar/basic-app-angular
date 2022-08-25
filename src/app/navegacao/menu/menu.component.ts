@@ -6,11 +6,45 @@ import { Component, OnInit } from '@angular/core';
   styles: [
   ]
 })
-export class MenuComponent implements OnInit {
 
-  constructor() { }
+export class MenuComponent {
+  nav: Nav[] = [
+    {
+      link: '/home',
+      name: 'Home',
+      exact: true,
+      admin: false
+    },
+    {
+      link: '/cadastro',
+      name: 'Cadastro',
+      exact: true,
+      admin: false
+    },
+    {
+      link: '/sobre',
+      name: 'Sobre',
+      exact: true,
+      admin: false
+    },
+    {
+      link: '/produtos-dashboard',
+      name: 'Produtos',
+      exact: false,
+      admin: false
+    },
+    {
+      link: '/admin',
+      name: 'Admin',
+      exact: false,
+      admin: false
+    }
+  ];
+}
 
-  ngOnInit(): void {
-  }
-
+interface Nav{
+  link:string,
+  name:string,
+  exact:boolean,
+  admin:boolean,
 }
