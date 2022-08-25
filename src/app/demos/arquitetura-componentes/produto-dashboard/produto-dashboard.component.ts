@@ -58,4 +58,9 @@ export class ProdutoDashboardComponent implements OnInit
     }];
   }
 
+  //o evento ira receber um produto
+  mudarStatus(event: Produto){
+    event.ativo = !event.ativo;//recebe o inverso do estado atual
+  }
+
 }
