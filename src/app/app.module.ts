@@ -24,7 +24,7 @@ import { AppRoutingModule } from './app.roteamento';
     ContatoComponent,
     DataBindingComponent,
     ListaProdutoComponent,
-    CadastroComponent
+    CadastroComponent,
   ],
   imports: [//modulos
     NavegacaoModule,
