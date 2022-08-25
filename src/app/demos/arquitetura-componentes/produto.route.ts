@@ -9,6 +9,7 @@ const produtoRouterConfig: Routes = [
 @NgModule({
 
     imports:[
+        //modulo de roteamento para um modulo 'filho'
         RouterModule.forChild(produtoRouterConfig)
     ],
     exports:[

@@ -1,11 +1,11 @@
 import { NgModule } from "@angular/core";
 import { RouterModule, Routes } from "@angular/router";
-import { ProdutoDashboardComponent } from "./demos/arquitetura-componentes/produto-dashboard/produto-dashboard.component";
 import { DataBindingComponent } from "./demos/data-binding/data-binding.component";
 import { CadastroComponent } from "./demos/reactiveForms/cadastro/cadastro.component";
 import { ContatoComponent } from "./institucional/contato/contato.component";
 import { SobreComponent } from "./institucional/sobre/sobre.component";
 import { HomeComponent } from "./navegacao/home/home.component";
+import { NotFoundComponent } from "./navegacao/not-found/not-found.component";
 import { ListaProdutoComponent } from "./produtos/lista-produto/lista-produto.component";
 
 export const rootRouterConfig: Routes =
@@ -21,9 +21,10 @@ export const rootRouterConfig: Routes =
       //carregando subModulo com lazy load
       path: 'produtos-dashboard',
       loadChildren: () => import('./demos/arquitetura-componentes/produto.module')
-        .then(m => m.ProdutoModule)
+      .then(m => m.ProdutoModule)
     },
-
+    
+    {path: '**', component: NotFoundComponent},//rota para 404
     //exemplo de como passar parametro na rota (id)
     //{ path: 'produto-detalhe/:id', component: ListaProdutoComponent }
   ];
