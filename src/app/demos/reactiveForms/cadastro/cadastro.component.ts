@@ -24,6 +24,8 @@ export class CadastroComponent implements OnInit, AfterViewInit
   genericValidator: GenericValidatior;
   displayMessage: DisplayMessage = {};
 
+  mudancasNaoSalvas: boolean;
+
   constructor(private fb: FormBuilder) 
   {
     this.validationMessages = {
@@ -54,9 +56,10 @@ export class CadastroComponent implements OnInit, AfterViewInit
     this.genericValidator = new GenericValidatior(this.validationMessages);
   }
 
-  ngOnInit() {
-    let senha = new FormControl('', [Validators.required, CustomValidators.rangeLength([6,15])]);
-    let senhaConfirm = new FormControl('', [Validators.required, CustomValidators.rangeLength([6,15]), CustomValidators.equalTo(senha)]);
+  ngOnInit()
+  {
+    let senha = new FormControl('', [Validators.required, CustomValidators.rangeLength([6, 15])]);
+    let senhaConfirm = new FormControl('', [Validators.required, CustomValidators.rangeLength([6, 15]), CustomValidators.equalTo(senha)]);
 
     this.cadastroForm = this.fb.group({
       nome: ['', [Validators.required, Validators.minLength(2), Validators.maxLength(150)]],
@@ -67,21 +70,6 @@ export class CadastroComponent implements OnInit, AfterViewInit
     });
   }
 
-  adicionarUsuario()
-  {
-    if (this.cadastroForm.dirty && this.cadastroForm.valid)
-    {
-      //passa os dados do form em um objeto do tipo 'usuario'
-      this.usuario = Object.assign({}, this.usuario, this.cadastroForm.value);
-      this.formResult = JSON.stringify(this.cadastroForm.value);
-    }
-    else
-    {
-      this.formResult = "Não submetido :(";
-    }
-  }
-
-
   //é chamada após o html já foi disponivel no browse
   ngAfterViewInit(): void
   {
@@ -91,8 +79,23 @@ export class CadastroComponent implements OnInit, AfterViewInit
     merge(...controlBlurs).subscribe(() =>
     {
       this.displayMessage = this.genericValidator.processarMensagens(this.cadastroForm);
+      this.mudancasNaoSalvas = true;
     });
   }
 
+  adicionarUsuario()
+  {
+    if (this.cadastroForm.dirty && this.cadastroForm.valid)
+    {
+      //passa os dados do form em um objeto do tipo 'usuario'
+      this.usuario = Object.assign({}, this.usuario, this.cadastroForm.value);
+      this.formResult = JSON.stringify(this.cadastroForm.value);
+      this.mudancasNaoSalvas = false;
+    }
+    else
+    {
+      this.formResult = "Não submetido :(";
+    }
+  }
 
 }

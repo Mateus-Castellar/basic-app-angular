@@ -8,6 +8,7 @@ import { HomeComponent } from "./navegacao/home/home.component";
 import { NotFoundComponent } from "./navegacao/not-found/not-found.component";
 import { ListaProdutoComponent } from "./produtos/lista-produto/lista-produto.component";
 import { AuthGuard } from "./services/app.guard";
+import { CadastroGuard } from "./services/cadastro.guard";
 
 export const rootRouterConfig: Routes =
   [
@@ -17,7 +18,7 @@ export const rootRouterConfig: Routes =
     { path: 'sobre', component: SobreComponent },
     { path: 'feature-data-binding', component: DataBindingComponent },
     { path: 'produtos', component: ListaProdutoComponent },
-    { path: 'cadastro', component: CadastroComponent },
+    { path: 'cadastro', component: CadastroComponent, canDeactivate: [CadastroGuard]},
     {
       //carregando subModulo com lazy load
       path: 'produtos-dashboard',

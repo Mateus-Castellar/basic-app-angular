@@ -6,7 +6,7 @@ export class AuthGuard implements CanLoad, CanActivate
 {
     //dado mock para teste
     //para alterar acesso a propriedade admin basta alterar para true/false
-    user = { admin: true, logged: false };
+    user = { admin: true, logged: true };
 
     canLoad(): boolean
     {

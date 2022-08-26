@@ -16,6 +16,7 @@ import { CustomFormsModule } from 'ng2-validation';
 import { NavegacaoModule } from './navegacao/navegacao.module';
 import { AppRoutingModule } from './app.roteamento';
 import { AuthGuard } from './services/app.guard';
+import { CadastroGuard } from './services/cadastro.guard';
 
 @NgModule({
   declarations: [//componentes
@@ -38,6 +39,7 @@ import { AuthGuard } from './services/app.guard';
   providers: [//servicos
     ProdutoService,
     AuthGuard,
+    CadastroGuard,
     // { provide: APP_BASE_HREF, useValue: '/' }
   ],
   bootstrap: [AppComponent]
