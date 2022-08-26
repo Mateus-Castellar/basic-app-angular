@@ -1,6 +1,5 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { APP_BASE_HREF } from '@angular/common';
 import { AppComponent } from './app.component';
 import { SobreComponent } from './institucional/sobre/sobre.component';
 import { ContatoComponent } from './institucional/contato/contato.component';
@@ -37,7 +36,7 @@ import { AppRoutingModule } from './app.roteamento';
   ],
   providers: [//servicos
     ProdutoService,
-    { provide: APP_BASE_HREF, useValue: '/' }
+    // { provide: APP_BASE_HREF, useValue: '/' }
   ],
   bootstrap: [AppComponent]
 })
