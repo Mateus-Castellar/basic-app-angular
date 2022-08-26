@@ -17,6 +17,8 @@ import { NavegacaoModule } from './navegacao/navegacao.module';
 import { AppRoutingModule } from './app.roteamento';
 import { AuthGuard } from './services/app.guard';
 import { CadastroGuard } from './services/cadastro.guard';
+import { FilmesComponent } from './demos/pipes/filmes/filmes.component';
+import { FilePipeSize } from './demos/pipes/filmes/filesize.pipe';
 
 @NgModule({
   declarations: [//componentes
@@ -25,7 +27,9 @@ import { CadastroGuard } from './services/cadastro.guard';
     ContatoComponent,
     DataBindingComponent,
     ListaProdutoComponent,
+    FilmesComponent,
     CadastroComponent,
+    FilePipeSize
   ],
   imports: [//modulos
     NavegacaoModule,
