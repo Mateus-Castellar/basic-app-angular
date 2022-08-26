@@ -25,13 +25,11 @@ export const rootRouterConfig: Routes =
     },
     
     {path: '**', component: NotFoundComponent},//rota para 404
-    //exemplo de como passar parametro na rota (id)
-    //{ path: 'produto-detalhe/:id', component: ListaProdutoComponent }
   ];
 
 @NgModule({
   imports: [
-    RouterModule.forRoot(rootRouterConfig),
+    RouterModule.forRoot(rootRouterConfig, {enableTracing: true}),
   ],
   exports: [
     RouterModule
