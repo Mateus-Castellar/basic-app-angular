@@ -30,7 +30,7 @@ export class MenuComponent {
     {
       link: '/produtos-dashboard',
       name: 'Produtos',
-      exact: false,
+      exact: false,//nao precisa ser exatamente a msm rota
       admin: false
     },
     {
