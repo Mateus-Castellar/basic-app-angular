@@ -23,13 +23,18 @@ export const rootRouterConfig: Routes =
       loadChildren: () => import('./demos/arquitetura-componentes/produto.module')
       .then(m => m.ProdutoModule)
     },
+    {
+      path: 'admin',
+      loadChildren: () => import('./admin/admin.module')
+      .then(m => m.AdminModule)
+    },
     
     {path: '**', component: NotFoundComponent},//rota para 404
   ];
 
 @NgModule({
   imports: [
-    RouterModule.forRoot(rootRouterConfig, {enableTracing: true}),
+    RouterModule.forRoot(rootRouterConfig, {enableTracing: false}),
   ],
   exports: [
     RouterModule
