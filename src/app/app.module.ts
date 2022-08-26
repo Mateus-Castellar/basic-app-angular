@@ -19,6 +19,7 @@ import { AuthGuard } from './services/app.guard';
 import { CadastroGuard } from './services/cadastro.guard';
 import { FilmesComponent } from './demos/pipes/filmes/filmes.component';
 import { FilePipeSize } from './demos/pipes/filmes/filesize.pipe';
+import { ImageFormatPipe } from './demos/pipes/filmes/image.pipe';
 
 @NgModule({
   declarations: [//componentes
@@ -29,7 +30,8 @@ import { FilePipeSize } from './demos/pipes/filmes/filesize.pipe';
     ListaProdutoComponent,
     FilmesComponent,
     CadastroComponent,
-    FilePipeSize
+    FilePipeSize,
+    ImageFormatPipe,
   ],
   imports: [//modulos
     NavegacaoModule,
